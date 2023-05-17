@@ -3,6 +3,7 @@ popupBox = document.querySelector(".popup-box"),
 popupTitle = popupBox.querySelector("header p"),
 closeIcon = popupBox.querySelector("header i"),
 titleTag = popupBox.querySelector("input"),
+scoreTag = popupBox.querySelector('input[name="userScore"]'), //input[name="pwd"]'
 descTag = popupBox.querySelector("textarea"),
 addBtn = popupBox.querySelector("button");
 
@@ -12,16 +13,17 @@ const notes = JSON.parse(localStorage.getItem("notes") || "[]");
 let isUpdate = false, updateId;
 
 addBox.addEventListener("click", () => {
-    popupTitle.innerText = "Add a new Note";
-    addBtn.innerText = "Add Note";
+    popupTitle.innerText = "How was today's round?";
+    addBtn.innerText = "Submit";
     popupBox.classList.add("show");
     document.querySelector("body").style.overflow = "hidden";
     if(window.innerWidth > 660) titleTag.focus();
+    if(window.innerWidth > 660) scoreTag.focus();
 });
 
 closeIcon.addEventListener("click", () => {
     isUpdate = false;
-    titleTag.value = descTag.value = "";
+    titleTag.value = descTag.value = scoreTag.value = "";
     popupBox.classList.remove("show");
     document.querySelector("body").style.overflow = "auto";
 });
@@ -34,6 +36,7 @@ function showNotes() {
         let liTag = `<li class="note">
                         <div class="details">
                             <p>${note.title}</p>
+                            <p>${note.score}</p>
                             <span>${filterDesc}</span>
                         </div>
                         <div class="bottom-content">
@@ -41,7 +44,7 @@ function showNotes() {
                             <div class="settings">
                                 <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
                                 <ul class="menu">
-                                    <li onclick="updateNote(${id}, '${note.title}', '${filterDesc}')"><i class="uil uil-pen"></i>Edit</li>
+                                    <li onclick="updateNote(${id}, '${note.title}', ${note.score}, '${filterDesc}')"><i class="uil uil-pen"></i>Edit</li>
                                     <li onclick="deleteNote(${id})"><i class="uil uil-trash"></i>Delete</li>
                                 </ul>
                             </div>
@@ -69,12 +72,13 @@ function deleteNote(noteId) {
     showNotes();
 }
 
-function updateNote(noteId, title, filterDesc) {
+function updateNote(noteId, title, score, filterDesc) {
     let description = filterDesc.replaceAll('<br/>', '\r\n');
     updateId = noteId;
     isUpdate = true;
     addBox.click();
     titleTag.value = title;
+    scoreTag.value = score;
     descTag.value = description;
     popupTitle.innerText = "Update a Note";
     addBtn.innerText = "Update Note";
@@ -83,6 +87,7 @@ function updateNote(noteId, title, filterDesc) {
 addBtn.addEventListener("click", e => {
     e.preventDefault();
     let title = titleTag.value.trim(),
+    score = scoreTag.value.trim(),
     description = descTag.value.trim();
 
     if(title || description) {
@@ -91,7 +96,7 @@ addBtn.addEventListener("click", e => {
         day = currentDate.getDate(),
         year = currentDate.getFullYear();
 
-        let noteInfo = {title, description, date: `${month} ${day}, ${year}`}
+        let noteInfo = {title, score, description, date: `${month} ${day}, ${year}`}
         if(!isUpdate) {
             notes.push(noteInfo);
         } else {
