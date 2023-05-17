@@ -7,11 +7,11 @@
   font-family: 'Poppins', sans-serif;
 }
 body{
-  background: #88ABFF;
+  background: #C8DBBE;
 }
 ::selection{
   color: #fff;
-  background: #618cf8;
+  background: #A6BB8D;
 }
 .wrapper{
   margin: 50px;
@@ -22,7 +22,7 @@ body{
 .wrapper li{
   height: 250px;
   list-style: none;
-  border-radius: 5px;
+  border-radius: 15px;
   padding: 15px 20px 20px;
   background: #fff;
   box-shadow: 0 4px 8px rgba(0,0,0,0.05);
@@ -39,16 +39,16 @@ body{
   justify-content: center;
 }
 .add-box .icon{
-  height: 78px;
-  width: 78px;
-  color: #88ABFF;
+  height: 100px;
+  width: 100px;
+  color: #A6BB8D;
   font-size: 40px;
   border-radius: 50%;
   justify-content: center;
-  border: 2px dashed #88ABFF;
+  border: 2px dashed #B5CDA3;
 }
 .add-box p{
-  color: #88ABFF;
+  color: #A6BB8D;
   font-weight: 500;
   margin-top: 20px;
 }
@@ -80,13 +80,18 @@ body{
   border-radius: 25px;
 }
 .note p{
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 500;
+}
+.note p1{
+  text-align: center;
+  font-size: 60px;
+  font-weight: 600;
 }
 .note span{
   display: block;
   color: #575757;
-  font-size: 16px;
+  font-size: 14px;
   margin-top: 5px;
 }
 .note .bottom-content{
@@ -228,7 +233,7 @@ form button{
   cursor: pointer;
   font-size: 17px;
   border-radius: 4px;
-  background: #6A93F8;
+  background: #A6BB8D;
 }
 
 @media (max-width: 660px){

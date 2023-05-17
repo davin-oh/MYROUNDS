@@ -3,7 +3,7 @@ popupBox = document.querySelector(".popup-box"),
 popupTitle = popupBox.querySelector("header p"),
 closeIcon = popupBox.querySelector("header i"),
 titleTag = popupBox.querySelector("input"),
-scoreTag = popupBox.querySelector('input[name="userScore"]'), //input[name="pwd"]'
+scoreTag = popupBox.querySelector('input[name="userScore"]'),
 descTag = popupBox.querySelector("textarea"),
 addBtn = popupBox.querySelector("button");
 
@@ -36,7 +36,7 @@ function showNotes() {
         let liTag = `<li class="note">
                         <div class="details">
                             <p>${note.title}</p>
-                            <p>${note.score}</p>
+                            <p1>${note.score}</p1>
                             <span>${filterDesc}</span>
                         </div>
                         <div class="bottom-content">
