@@ -1,4 +1,5 @@
 const addBox = document.querySelector(".add-box"),
+newBtn = document.querySelector(".newButton"),
 popupBox = document.querySelector(".popup-box"),
 popupTitle = popupBox.querySelector("header p"),
 closeIcon = popupBox.querySelector("header i"),
@@ -12,7 +13,7 @@ const months = ["January", "February", "March", "April", "May", "June", "July",
 const notes = JSON.parse(localStorage.getItem("notes") || "[]");
 let isUpdate = false, updateId;
 
-addBox.addEventListener("click", () => {
+newBtn.addEventListener("click", () => {
     popupTitle.innerText = "How was today's round?";
     addBtn.innerText = "Submit";
     popupBox.classList.add("show");
@@ -20,6 +21,15 @@ addBox.addEventListener("click", () => {
     if(window.innerWidth > 660) titleTag.focus();
     if(window.innerWidth > 660) scoreTag.focus();
 });
+
+/*addBox.addEventListener("click", () => {
+    popupTitle.innerText = "How was today's round?";
+    addBtn.innerText = "Submit";
+    popupBox.classList.add("show");
+    document.querySelector("body").style.overflow = "hidden";
+    if(window.innerWidth > 660) titleTag.focus();
+    if(window.innerWidth > 660) scoreTag.focus();
+});*/
 
 closeIcon.addEventListener("click", () => {
     isUpdate = false;
@@ -76,7 +86,7 @@ function updateNote(noteId, title, score, filterDesc) {
     let description = filterDesc.replaceAll('<br/>', '\r\n');
     updateId = noteId;
     isUpdate = true;
-    addBox.click();
+    newBtn.click();
     titleTag.value = title;
     scoreTag.value = score;
     descTag.value = description;

@@ -55,6 +55,7 @@ body{
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  padding-bottom: 20%;
 }
 .wrapper li{
   height: 270px;
@@ -66,19 +67,22 @@ body{
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 h1{
-  margin-left: 100px;
+  text-align: center;
+  padding-top: 20%;
+  padding-bottom: 15px;
+  /*margin-left: 100px;
   margin-top: 40px;
-  margin-bottom: 10px;
-  font-size: clamp(50px,4vw,70px);
+  margin-bottom: 10px;*/
+  font-size: clamp(70px,4vw,100px);
   font-weight: bold;
   color: #97B871;
 }
 h2{
-  padding-left: 100px;
-  margin-bottom: 40px;
+  text-align: center;
   font-size: clamp(10px,4vw,30px);
   font-weight: bold;
   color: #97B871;
+  padding-bottom: 40%;
 }
 
 .add-box, .icon, .bottom-content, 
