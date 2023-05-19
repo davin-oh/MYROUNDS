@@ -22,14 +22,14 @@ newBtn.addEventListener("click", () => {
     if(window.innerWidth > 660) scoreTag.focus();
 });
 
-/*addBox.addEventListener("click", () => {
+addBox.addEventListener("click", () => {
     popupTitle.innerText = "How was today's round?";
     addBtn.innerText = "Submit";
     popupBox.classList.add("show");
     document.querySelector("body").style.overflow = "hidden";
     if(window.innerWidth > 660) titleTag.focus();
     if(window.innerWidth > 660) scoreTag.focus();
-});*/
+});
 
 closeIcon.addEventListener("click", () => {
     isUpdate = false;
@@ -54,7 +54,6 @@ function showNotes() {
                             <div class="settings">
                                 <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
                                 <ul class="menu">
-                                    <li onclick="updateNote(${id}, '${note.title}', ${note.score}, '${filterDesc}')"><i class="uil uil-pen"></i>Edit</li>
                                     <li onclick="deleteNote(${id})"><i class="uil uil-trash"></i>Delete</li>
                                 </ul>
                             </div>
@@ -80,18 +79,6 @@ function deleteNote(noteId) {
     notes.splice(noteId, 1);
     localStorage.setItem("notes", JSON.stringify(notes));
     showNotes();
-}
-
-function updateNote(noteId, title, score, filterDesc) {
-    let description = filterDesc.replaceAll('<br/>', '\r\n');
-    updateId = noteId;
-    isUpdate = true;
-    newBtn.click();
-    titleTag.value = title;
-    scoreTag.value = score;
-    descTag.value = description;
-    popupTitle.innerText = "Update a Note";
-    addBtn.innerText = "Update Note";
 }
 
 addBtn.addEventListener("click", e => {
