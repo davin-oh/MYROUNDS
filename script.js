@@ -1,5 +1,4 @@
 const addBox = document.querySelector(".add-box"),
-newBtn = document.querySelector(".newButton"),
 popupBox = document.querySelector(".popup-box"),
 popupTitle = popupBox.querySelector("header p"),
 closeIcon = popupBox.querySelector("header i"),
@@ -12,15 +11,6 @@ const months = ["January", "February", "March", "April", "May", "June", "July",
               "August", "September", "October", "November", "December"];
 const notes = JSON.parse(localStorage.getItem("notes") || "[]");
 let isUpdate = false, updateId;
-
-newBtn.addEventListener("click", () => {
-    popupTitle.innerText = "How was today's round?";
-    addBtn.innerText = "Submit";
-    popupBox.classList.add("show");
-    document.querySelector("body").style.overflow = "hidden";
-    if(window.innerWidth > 660) titleTag.focus();
-    if(window.innerWidth > 660) scoreTag.focus();
-});
 
 addBox.addEventListener("click", () => {
     popupTitle.innerText = "How was today's round?";
