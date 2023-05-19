@@ -1,5 +1,9 @@
 /* Import Google Font - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+html{
+  scroll-behavior: smooth;
+}
 *{
   margin: 0;
   padding: 0;
@@ -31,7 +35,7 @@ body{
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-  padding-bottom: 20%;
+  padding-bottom: 10%;
 }
 .wrapper li{
   height: 270px;
@@ -58,9 +62,51 @@ h2{
   font-size: clamp(10px,4vw,30px);
   font-weight: bold;
   color: #97B871;
-  padding-bottom: 40%;
+  padding-bottom: 10%;
+}
+.scroll-icon {
+  position: absolute;
+  left: 47%;
+	top: auto;
+	margin: 2em;
+	width: 2em;
+	height: 4em;
+	border: .3em solid #97B871;
+	border-radius: 2em;
+}
+.scroll-icon.ex-1 .wheel {
+	position: absolute;
+	left: 47%;
+	top: auto;
+	width: .6em;
+	height: .6em;
+	background-color: #97B871;
+	transform: translate(-50%, 0);
+	border-radius: .6em;
+	animation: ex-1-wheel 2s ease-in-out infinite;
+}
+@keyframes ex-1-wheel {
+	0% {
+		transform: translate(-50%, 0);
+		opacity: 0;
+	}
+	20%, 70% {
+		opacity: 1;
+	}
+	90%, 100% {
+		transform: translate(-50%, 150%);
+		opacity: 0;
+	}
 }
 
+
+
+
+a{
+  align-items: center;
+  font-size: clamp(10px,4vw,30px);
+  font-weight: bold;
+}
 .add-box, .icon, .bottom-content, 
 .popup, header, .settings .menu li{
   display: flex;
