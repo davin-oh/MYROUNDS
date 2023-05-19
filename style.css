@@ -18,6 +18,30 @@
   background-position: 50% 50%;
   background-size: cover;
 }
+
+.newButton {
+  display: block;
+  position: absolute;
+  bottom: 50px;
+  right: 50%;
+  margin-right: -110px;
+  /*margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;*/
+  cursor: pointer;
+  flex-direction: column;
+  height: 60px;
+  width: 220px;
+  background-color: white;
+  font-size: 40px;
+}
+.newButton p{
+  font-size: 20px;
+  color: #A6BB8D;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 18px;
+}
 body{
   background:#E1F4FE;
 }
