@@ -5,11 +5,13 @@ closeIcon = popupBox.querySelector("header i"),
 titleTag = popupBox.querySelector("input"),
 scoreTag = popupBox.querySelector('input[name="userScore"]'),
 descTag = popupBox.querySelector("textarea"),
+boxes = document.querySelector(".wrapper");
 addBtn = popupBox.querySelector("button");
 const months = ["January", "February", "March", "April", "May", "June", "July",
               "August", "September", "October", "November", "December"];
 const notes = JSON.parse(localStorage.getItem("notes") || "[]");
 let isUpdate = false, updateId;
+
 
 addBox.addEventListener("click", () => {
     popupTitle.innerText = "How was today's round?";
@@ -26,8 +28,7 @@ closeIcon.addEventListener("click", () => {
     popupBox.classList.remove("show");
     document.querySelector("body").style.overflow = "auto";
 });
-
-function showNotes() {
+/*function showNotes() {
     if(!notes) return;
     document.querySelectorAll(".note").forEach(li => li.remove());
     notes.forEach((note, id) => {
@@ -43,6 +44,36 @@ function showNotes() {
                             <div class="settings">
                                 <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
                                 <ul class="menu">
+                                    <li onclick="updateNote(${id}, '${note.title}', '${filterDesc}')"><i class="uil uil-pen"></i>Edit</li>
+                                    <li onclick="deleteNote(${id})"><i class="uil uil-trash"></i>Delete</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>`;
+        addBox.insertAdjacentHTML("afterend", liTag);
+    });
+}*/
+function showNotes() {
+    if(!notes) return;
+    document.querySelectorAll(".note").forEach(li => li.remove());
+    notes.forEach((note, id) => {
+        const max_body_length = 85;
+        let filterDesc = note.description.replaceAll("\n", '<br/>');
+        let liTag = `<li class="note">
+                        <div class="details">
+                            <p>${note.title}</p>
+                            <p1>${note.score}</p1>
+                            <span>
+                            ${filterDesc.substring(0, max_body_length)}
+                            ${filterDesc.length > max_body_length ? "..." : ""}
+                            </span>
+                        </div>
+                        <div class="bottom-content">
+                            <span>${note.date}</span>
+                            <div class="settings">
+                                <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
+                                <ul class="menu">
+                                    <li onclick="updateNote(${id}, '${note.title}', '${note.score}', '${filterDesc}')"><i class="uil uil-pen"></i>Edit</li>
                                     <li onclick="deleteNote(${id})"><i class="uil uil-trash"></i>Delete</li>
                                 </ul>
                             </div>
@@ -51,9 +82,41 @@ function showNotes() {
         addBox.insertAdjacentHTML("afterend", liTag);
     });
 
-    
+    /*boxes.addEventListener("click", () => {
+        popupTitle.innerText = "How was today's round?";
+        addBtn.innerText = "Submit";
+        popupBox.classList.add("show");
+        document.querySelector("body").style.overflow = "hidden";
+        if(window.innerWidth > 660) titleTag.focus();
+        if(window.innerWidth > 660) scoreTag.focus();
+    })*/
+    /*notes.forEach((note, id) => {
+            let filterDesc = note.description.replaceAll("\n", '<br/>');
+            let liTag = `<li class="note">
+                            <div class="details">
+                                <p>${note.title}</p>
+                                <p1>${note.score}</p1>
+                                <span>${filterDesc}</span>
+                            </div>
+                            <div class="bottom-content">
+                                <span>${note.date}</span>
+                                <div class="settings">
+                                    <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
+                                    <ul class="menu">
+                                        <li onclick="updateNote(${id}, '${note.title}', '${filterDesc}')"><i class="uil uil-pen"></i>Edit</li>
+                                        <li onclick="deleteNote(${id})"><i class="uil uil-trash"></i>Delete</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>`;
+            addBox.insertAdjacentHTML("afterend", liTag);
+        });
+
+    }*/
+
 }
 showNotes();
+expandNotes();
 
 function showMenu(elem) {
     elem.parentElement.classList.add("show");
@@ -71,6 +134,30 @@ function deleteNote(noteId) {
     localStorage.setItem("notes", JSON.stringify(notes));
     showNotes();
 }
+
+/*boxes.addEventListener("click", () => {
+    popupTitle.innerText = "How was today's round?";
+    addBtn.innerText = "Submit";
+    popupBox.classList.add("show");
+    document.querySelector("body").style.overflow = "hidden";
+    if(window.innerWidth > 660) titleTag.focus();
+    if(window.innerWidth > 660) scoreTag.focus();
+})*/
+
+function updateNote(noteId, title, score, filterDesc) {
+    let description = filterDesc.replaceAll('<br/>', '\r\n');
+    updateId = noteId;
+    isUpdate = true;
+    addBox.click();
+    titleTag.value = title;
+    //scoreTag = popupBox.querySelector('input[name="userScore"]'),
+    scoreTag.value = score;
+    descTag.value = description;
+    popupTitle.innerText = "Update a Note";
+    addBtn.innerText = "Update Note";
+}
+
+
 
 addBtn.addEventListener("click", e => {
     e.preventDefault();
