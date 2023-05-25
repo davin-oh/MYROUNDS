@@ -132,46 +132,46 @@ h2{
   font-weight: 500;
   margin-top: 20px;
 }
-.note{
+.round{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.note .details{
+.round .details{
   max-height: 185px;
   overflow-y: auto;
 }
-.note .details::-webkit-scrollbar,
+.round .details::-webkit-scrollbar,
 .popup textarea::-webkit-scrollbar{
   width: 0;
 }
-.note .details:hover::-webkit-scrollbar,
+.round .details:hover::-webkit-scrollbar,
 .popup textarea:hover::-webkit-scrollbar{
   width: 5px;
 }
-.note .details:hover::-webkit-scrollbar-track,
+.round .details:hover::-webkit-scrollbar-track,
 .popup textarea:hover::-webkit-scrollbar-track{
   background: #f1f1f1;
   border-radius: 25px;
 }
-.note .details:hover::-webkit-scrollbar-thumb,
+.round .details:hover::-webkit-scrollbar-thumb,
 .popup textarea:hover::-webkit-scrollbar-thumb{
   background: #e6e6e6;
   border-radius: 25px;
 }
-.note p{
+.round p{
   padding-bottom: 0px;
   font-size: 20px;
   font-weight: bold;
   color: #808080;
 }
-.note p1{
+.round p1{
   font-size: 70px;
   font-weight: bold;
   color:#97B871;
 }
-.note span{
-  padding-top: 10px;
+.round span{
+  padding-top: 0px;
   display: block;
   color: #5b5b5b;
   font-size: 16px;
@@ -179,7 +179,7 @@ h2{
   margin-top: 5px;
   padding-bottom: 0px;
 }
-.note .bottom-content{
+.round .bottom-content{
   padding-top: 6px;
   border-top: 1px solid #A6BB8D;
 }
@@ -303,7 +303,7 @@ form :where(input, textarea){
   border: 1px solid #999;
 }
 form :where(input, textarea):focus{
-  box-shadow: 0 2px 4px rgba(0,0,0,0.11);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 form .row textarea{
   height: 150px;
