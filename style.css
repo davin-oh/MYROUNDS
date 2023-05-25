@@ -161,13 +161,12 @@ h2{
 }
 .note p{
   padding-bottom: 0px;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   color: #808080;
 }
 .note p1{
-  text-align: center;
-  font-size: 60px;
+  font-size: 70px;
   font-weight: bold;
   color:#97B871;
 }
@@ -175,16 +174,17 @@ h2{
   padding-top: 10px;
   display: block;
   color: #5b5b5b;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: medium;
   margin-top: 5px;
   padding-bottom: 0px;
 }
 .note .bottom-content{
-  padding-top: 10px;
+  padding-top: 6px;
   border-top: 1px solid #A6BB8D;
 }
 .bottom-content span{
+  position: relative;
   color: #6D6D6D;
   font-size: 14px;
 }
