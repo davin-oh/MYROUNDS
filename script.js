@@ -34,26 +34,25 @@ function showRounds() {
         const max_body_length = 85;
         let filterDesc = round.description.replaceAll("\n", '<br/>');
         let liTag = `<li class="round">
-                        <div class="details">
-                            <p>${round.title}</p>
-                            <p1>${round.score}</p1>
-                            <span>
-                            ${filterDesc.substring(0, max_body_length)}
-                            ${filterDesc.length > max_body_length ? "..." : ""}
-                            </span>
-                        </div>
-                        <div class="bottom-content">
-                            <span>${round.date}</span>
-                            <div class="settings">
-                                <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
-                                <ul class="menu">
-                                    <li onclick="updateround(${id}, '${round.title}', '${round.score}', '${filterDesc}')"><i class="uil uil-pen"></i>Edit</li>
-                                    <li onclick="deleteround(${id})"><i class="uil uil-trash"></i>Delete</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>`;
-        addBox.insertAdjacentHTML("afterend", liTag);
+                                <div class="details">
+                                    <p>${round.title}</p>
+                                    <p1>${round.score}</p1>
+                                    <span onclick="updateround(${id}, '${round.title}', '${round.score}', '${filterDesc}')">
+                                    ${filterDesc.substring(0, max_body_length)}
+                                    ${filterDesc.length > max_body_length ? "..." : ""}
+                                    </span>
+                                </div>
+                                <div class="bottom-content">
+                                    <span>${round.date}</span>
+                                    <div class="settings">
+                                        <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
+                                        <ul class="menu">
+                                            <li onclick="deleteround(${id})"><i class="uil uil-trash"></i>Delete</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>`;
+    addBox.insertAdjacentHTML("afterend", liTag);
     });}
 
 showRounds();
