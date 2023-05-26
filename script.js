@@ -31,12 +31,12 @@ function showRounds() {
     if(!rounds) return;
     document.querySelectorAll(".round").forEach(li => li.remove());
     rounds.forEach((round, id) => {
-        const max_body_length = 85;
+        const max_body_length = 45;
         let filterDesc = round.description.replaceAll("\n", '<br/>');
         let liTag = `<li class="round">
                                 <div class="details">
-                                    <p>${round.title}</p>
-                                    <p1>${round.score}</p1>
+                                    <p onclick="updateround(${id}, '${round.title}', '${round.score}', '${filterDesc}')">${round.title}</p>
+                                    <p1 onclick="updateround(${id}, '${round.title}', '${round.score}', '${filterDesc}')">${round.score}</p1>
                                     <span onclick="updateround(${id}, '${round.title}', '${round.score}', '${filterDesc}')">
                                     ${filterDesc.substring(0, max_body_length)}
                                     ${filterDesc.length > max_body_length ? "..." : ""}

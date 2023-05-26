@@ -34,11 +34,11 @@ body{
   margin-right: 100px;
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-  padding-bottom: 10%;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  padding-bottom: 30%;
 }
 .wrapper li{
-  height: 280px;
+  height: 220px;
   list-style: none;
   border-radius: 20px;
   margin-right: 0%;
@@ -160,21 +160,24 @@ h2{
   border-radius: 25px;
 }
 .round p{
+  cursor: pointer;
   padding-bottom: 0px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   color: #808080;
 }
 .round p1{
-  font-size: 70px;
+  cursor: pointer;
+  font-size: 60px;
   font-weight: bold;
   color:#97B871;
 }
 .round span{
+  cursor: pointer;
   padding-top: 0px;
   display: block;
   color: #5b5b5b;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: medium;
   margin-top: 5px;
   padding-bottom: 0px;
