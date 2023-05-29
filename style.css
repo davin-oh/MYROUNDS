@@ -331,6 +331,9 @@ form button{
     gap: 15px;
     grid-template-columns: repeat(auto-fill, 100%);
   }
+  h1{
+    padding-top: 45%;
+  }
   .popup-box .popup{
     max-width: calc(100% - 15px);
   }
