@@ -48,7 +48,7 @@ body{
 }
 h1{
   text-align: center;
-  padding-top: 18%;
+  padding-top: 20%;
   padding-bottom: 15px;
   font-size: clamp(70px,4vw,100px);
   font-weight: bold;
